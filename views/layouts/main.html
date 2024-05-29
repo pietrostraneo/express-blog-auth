@@ -25,7 +25,13 @@
                     </div>
                     <div class="login">
                         <i class="fas fa-user text-white"></i>
-                        <a href="/login" class="text-warning text-decoration-none fw-bold text-uppercase">Login</a>
+                        <a href="/login" class="text-warning text-decoration-none fw-bold text-uppercase">
+                            {{#if user}}
+                            {{user}}
+                            {{else}}
+                            Login
+                            {{/if}}
+                        </a>
                     </div>
                 </div>
             </div>

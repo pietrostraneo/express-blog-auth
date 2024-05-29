@@ -35,7 +35,8 @@ const login = (req, res) => {
         json: () => res.json({ token }),
         html: () => {
             res.cookie('auth_token', token, { httpOnly: true });
-            res.redirect('/')
+            res.cookie('username', user.username, { httpOnly: true });
+            res.redirect('/');
         }
     })
 }

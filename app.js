@@ -22,11 +22,9 @@ app.use(cookieParser());
 
 app.use(express.static('public'));
 
-const title = "TITOLO JS";
-
 app.get('/', (req, res) => {
-    const data = {
-        title: title,
+    let data = {
+        user: req.cookies.username,
     }
     res.render('index', data);
 })
