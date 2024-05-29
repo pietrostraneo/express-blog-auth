@@ -4,6 +4,7 @@ const fs = require("fs");
 let posts = require("../db/posts.json");
 
 const slugify = require('slugify');
+const { json } = require("express");
 
 const updatePost = (newPost) => {
     const filePath = path.join(__dirname, '../db/posts.json');
@@ -15,6 +16,17 @@ const deletePublicFile = (fileName) => {
     const filePath = path.join(__dirname, '../public', fileName);
     fs.unlinkSync(filePath);
 };
+
+const index = (req, res) => {
+    res.format({
+        json: () => {
+            res.json(posts);
+        },
+        html: () => {
+            res.render("index", { posts });
+        }
+    })
+}
 
 const create = (req, res) => {
     const { title, content, tags } = req.body;
@@ -128,5 +140,6 @@ const destroy = (req, res) => {
 
 module.exports = {
     create,
-    destroy
+    destroy,
+    index
 };

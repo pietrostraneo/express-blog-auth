@@ -14,8 +14,6 @@ app.use(express.static('public'));
 
 app.post('/login', auth.login);
 
-app.use(auth.authenticate);
-
 app.use('/posts', postRouter);
 
 app.use(errorHandling);
