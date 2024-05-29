@@ -1,12 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 
-let posts = require("../db/db.json");
+let posts = require("../db/posts.json");
 
 const slugify = require('slugify');
 
 const updatePost = (newPost) => {
-    const filePath = path.join(__dirname, '../db/db.json');
+    const filePath = path.join(__dirname, '../db/posts.json');
     fs.writeFileSync(filePath, JSON.stringify(newPost));
     posts = newPost;
 };
