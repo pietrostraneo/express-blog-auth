@@ -10,6 +10,7 @@ const auth = require('../controllers/auth.js');
 
 
 router.get('/', postController.index);
+router.get('/:slug', postController.show)
 
 router.use(auth.authenticate);
 

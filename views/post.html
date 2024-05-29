@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row justify-content-center mt-4 flex-wrap gap-3 pb-4">
+        {{#each posts}}
+        <div class="col-3 card posts">
+            <img src="/imgs/posts/{{this.image}}" alt="image" class="img-fluid">
+            <hr>
+            <a href="/posts/{{this.slug}}" class="text-white">
+                <h3 class="fw-bold text-decoration-underline">{{this.title}}</h3>
+            </a>
+
+            <p class="truncate-text">{{this.content}}</p>
+            <div class="tags d-flex gap-2 flex-wrap">
+                {{#each this.tags}}
+                <span class="badge badge-pill badge-info">{{this}}</span>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

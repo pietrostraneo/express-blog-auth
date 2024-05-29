@@ -31,3 +31,17 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Ombra leggera per effetto tridimensionale */
 }
+
+
+
+/* POSTS */
+
+.truncate-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Numero di righe da visualizzare prima di troncare */
+    -webkit-box-orient: vertical;
+}

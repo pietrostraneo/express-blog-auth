@@ -29,6 +29,9 @@ app.get('/', (req, res) => {
     res.render('index', data);
 })
 
+app.get('/login', (req, res) => {
+    res.render('login');
+})
 app.post('/login', auth.login);
 
 app.use('/posts', postRouter);

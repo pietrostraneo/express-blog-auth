@@ -23,7 +23,39 @@ const index = (req, res) => {
             res.json(posts);
         },
         html: () => {
-            res.render("index", { posts });
+            const data = {
+                posts: posts,
+            }
+            res.render("post", data);
+        }
+    })
+}
+
+const show = (req, res) => {
+    const { slug } = req.params
+    const postToShow = posts.find(p => p.slug === slug);
+    if (!postToShow) {
+        res.format({
+            json: () => {
+                res.status(404).json({
+                    status: 404,
+                    error: 'Post not found'
+                })
+            },
+            html: () => {
+                res.status(404).send('<h1>Post not found</h1>');
+            }
+        })
+    }
+    res.format({
+        json: () => {
+            res.json(postToShow);
+        },
+        html: () => {
+            const data = {
+                post: postToShow,
+            }
+            res.render('show', data);
         }
     })
 }
@@ -141,5 +173,6 @@ const destroy = (req, res) => {
 module.exports = {
     create,
     destroy,
-    index
+    index,
+    show
 };
