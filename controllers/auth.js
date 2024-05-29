@@ -25,7 +25,18 @@ const authenticate = (req, res, next) => {
 
 }
 
+const login = (req, res) => {
+    const { username, password } = req.body;
+    const user = user.find(u => u.username === username && u.password === password);
+    if (!user) {
+        return res.status(401).json({ error: "Invalid username or password" });
+    }
+    const token = generateToken(user);
+    res.json({ token });
+}
+
 module.exports = {
     generateToken,
-    authenticate
+    authenticate,
+    login
 }
