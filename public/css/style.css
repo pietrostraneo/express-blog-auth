@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------ INDEX.HTML ------------ */
+
+/* HEADER */
+
+header {
+    background-color: black;
+}
+
+.logo img {
+    width: 80px;
+}
+
+/* MAIN */
+
+body {
+    background-color: #2E2E2E;
+}
+
+.card {
+    background-color: #2E2E2E;
+    color: #FFFFFF;
+    /* Testo bianco per contrasto */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Ombra leggera per effetto tridimensionale */
+}
