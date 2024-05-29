@@ -61,6 +61,10 @@ const show = (req, res) => {
 }
 
 const create = (req, res) => {
+    res.render("create");
+}
+
+const store = (req, res) => {
     const { title, content, tags } = req.body;
     if (!title || !content || !tags) {
         req.file?.filename && deletePublicFile(req.file.filename);
@@ -172,6 +176,7 @@ const destroy = (req, res) => {
 
 module.exports = {
     create,
+    store,
     destroy,
     index,
     show

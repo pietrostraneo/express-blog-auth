@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.p-20 {
+    padding: 20px;
+}
+
 /* ------------ INDEX.HTML ------------ */
 
 /* HEADER */
@@ -44,4 +48,23 @@ body {
     -webkit-line-clamp: 3;
     /* Numero di righe da visualizzare prima di troncare */
     -webkit-box-orient: vertical;
+}
+
+.fa-plus {
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.newPost:hover i {
+    background-color: #FFFFFF;
+    color: #2E2E2E;
+}
+
+.newPost:hover h3 {
+    text-decoration: underline;
+}
+
+.newPost {
+    transition: all 0.3s ease-in;
 }

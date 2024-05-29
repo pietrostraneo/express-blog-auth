@@ -8,12 +8,11 @@ const generateToken = user => jwt.sign(user, key, { expiresIn: "1m" });
 
 const authenticate = (req, res, next) => {
 
-    const { authorization } = req.headers;
-    if (!authorization) {
+    const token = req.cookies.auth_token
+
+    if (!token) {
         return res.status(401).json({ error: "You must be logged in" });
     }
-
-    const token = authorization.split(' ')[1];
 
     jwt.verify(token, key, (err, user) => {
         if (err) {
@@ -32,7 +31,13 @@ const login = (req, res) => {
         return res.status(401).json({ error: "Invalid username or password" });
     }
     const token = generateToken(user);
-    res.json({ token });
+    res.format({
+        json: () => res.json({ token }),
+        html: () => {
+            res.cookie('auth_token', token, { httpOnly: true });
+            res.redirect('/')
+        }
+    })
 }
 
 const admin = (req, res, next) => {

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 col-md-6 p-5">
+            <form action="/posts" method="post" enctype="multipart/form-data">
+                <div class="card text-center">
+                    <h1 class="fw-bolder mb-4">NEW POST.</h1>
+                    <div class="input-group mb-4">
+                        <label for="user" class="form-label">Titolo:</label>
+                        <input type="text" name="title" id="title" class="form-control w-100">
+                    </div>
+                    <div class="input-group mb-4">
+                        <label for="pass" class="form-label">Contenuto:</label>
+                        <textarea name="content" id="content" class="form-control w-100"></textarea>
+                    </div>
+                    <div class="input-group mb-4">
+                        <label for="pass" class="form-label">Immagine di Copertina:</label>
+                        <input type="file" name="image" id="image" class="form-control w-100">
+                    </div>
+                    <div class="input-group">
+                        <label for="pass" class="form-label">Tags:</label>
+                        <input type="text" name="tags" id="tags" class="form-control w-100">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-success mt-3 w-100">Publish</button>
+            </form>
+        </div>
+    </div>
+</div>

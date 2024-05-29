@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 
-const handleBars = require('express-handlebars')
+const handleBars = require('express-handlebars');
+const cookieParser = require('cookie-parser');
 
 const port = 3000;
 
@@ -17,6 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded());
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(express.static('public'));
 
